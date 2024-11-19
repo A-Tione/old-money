@@ -1,8 +1,8 @@
-import { First } from '../components/welcome/first'
-import { Forth } from '../components/welcome/forth'
-import { Second } from '../components/welcome/second'
-import { Third } from '../components/welcome/third'
-import { Welcome } from '../views/welcome'
+import { First } from '../components/welcome/First'
+import { Forth } from '../components/welcome/Forth'
+import { Second } from '../components/welcome/Second'
+import { Third } from '../components/welcome/Third'
+import { Welcome } from '../views/Welcome'
 import {Bar} from '../views/Bar'
 import { Foo } from '../views/Foo'
 
