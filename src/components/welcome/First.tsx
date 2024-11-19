@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import pig from "../../assets//icons/cloud.svg"
+import pig from "../../assets//icons/pig.svg"
 import s from './First.module.scss'
 import { RouterLink } from 'vue-router';
 export const First = defineComponent({
