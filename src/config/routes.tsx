@@ -7,6 +7,7 @@ import { SecondActions } from '../components/welcome/SecondActions'
 import { Third } from '../components/welcome/Third'
 import { ThirdActions } from '../components/welcome/ThirdActions'
 import { Welcome } from '../views/Welcome'
+import { Start } from '../views/Start'
 
 
 
@@ -22,5 +23,6 @@ export const routes = [
       {path: '3', components: {main: Third, footer: ThirdActions}},
       {path: '4', components: {main: Forth, footer: ForthActions}},
     ]
-  }
+  },
+  { path: '/start', component: Start }
 ]
