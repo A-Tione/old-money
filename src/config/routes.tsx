@@ -18,10 +18,10 @@ export const routes = [
     component: Welcome,
     children: [
       {path: '', redirect: '/welcome/1'},
-      {path: '1', components: {main: First, footer: FirstActions}},
-      {path: '2', components: {main: Second, footer: SecondActions}},
-      {path: '3', components: {main: Third, footer: ThirdActions}},
-      {path: '4', components: {main: Forth, footer: ForthActions}},
+      {path: '1', components: {main: First, footer: FirstActions}, name: 'welcome1'},
+      {path: '2', components: {main: Second, footer: SecondActions}, name: 'welcome2'},
+      {path: '3', components: {main: Third, footer: ThirdActions}, name: 'welcome3'},
+      {path: '4', components: {main: Forth, footer: ForthActions}, name: 'welcome4'},
     ]
   },
   { path: '/start', component: Start }

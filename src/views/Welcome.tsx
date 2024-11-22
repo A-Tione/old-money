@@ -1,8 +1,32 @@
-import { defineComponent, Transition, VNode } from 'vue';
-import { RouterView, RouteLocationNormalizedLoaded } from 'vue-router';
+import { defineComponent, ref, Transition, VNode, watchEffect } from 'vue';
+import { RouterView, RouteLocationNormalizedLoaded, useRoute, useRouter } from 'vue-router';
 import s from './Welcome.module.scss'
+import { useSwipe } from '../hooks/useSwipe';
+import { throttle } from '../shared/throttle';
 export const Welcome = defineComponent({
   setup: (props, context) => {
+    const main = ref<HTMLDivElement>()
+    const {direction, swiping} = useSwipe(main, {
+      beforeStart: e => e.preventDefault(),
+    })
+    const route = useRoute()
+    const router = useRouter()
+    const welcomeMap: Record<string, string> = {
+      'welcome1': '/welcome/2',
+      'welcome2': '/welcome/3',
+      'welcome3': '/welcome/4',
+      'welcome4': '/start',
+    }
+    const onPush = throttle(() => {
+      const name = (route.name || 'welcome1').toString()
+      router.push(welcomeMap[name])
+    }, 500)
+    watchEffect(() => {
+      if(swiping.value && direction.value === 'left') {
+        onPush()
+      }
+      
+    })
     return () => 
       <div class={s.wrapper}>
         <header>
@@ -11,7 +35,7 @@ export const Welcome = defineComponent({
           </svg>
           <h1>山竹记账</h1>
         </header>
-        <main class={s.main}>
+        <main class={s.main} ref={main}>
           <RouterView name='main'>
             {({Component: X, route: R}: {Component: VNode, route: RouteLocationNormalizedLoaded}) =>
               <Transition enterFromClass={s.slide_fade_enter_from} enterActiveClass={s.slide_fade_enter_active}
