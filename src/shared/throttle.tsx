@@ -1,6 +1,6 @@
-export const throttle = (fn: Function, time: number) => {
-  let timer: number | undefined = undefined
-  return (...args: any[]) => {
+export const throttle = <T extends unknown[]>(fn: Function, time: number) => {
+  let timer: ReturnType<typeof setTimeout> | undefined = undefined
+  return (...args: T) => {
     if (timer) {
       return
     } else {
