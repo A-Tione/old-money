@@ -1,6 +1,7 @@
 import { defineComponent } from "vue";
 import s from './StartPage.module.scss'
 import { Button } from "../shared/Button";
+import { FloatButton } from "../shared/FloatButton";
 
 export const StartPage = defineComponent({
   setup: (props, context) => {
@@ -13,6 +14,8 @@ export const StartPage = defineComponent({
         <div class={s.button_warpper}>
           <Button class={s.button} onClick={onClick}>测试</Button>
         </div>
+        1
+        <FloatButton/>
       </div>
     )
   }
