@@ -17,13 +17,13 @@ export const Welcome = defineComponent({
       'welcome3': '/welcome/4',
       'welcome4': '/start',
     }
-    const onPush = throttle(() => {
+    const onReplace = throttle(() => {
       const name = (route.name || 'welcome1').toString()
-      router.push(welcomeMap[name])
+      router.replace(welcomeMap[name])
     }, 500)
     watchEffect(() => {
       if(swiping.value && direction.value === 'left') {
-        onPush()
+        onReplace()
       }
       
     })
