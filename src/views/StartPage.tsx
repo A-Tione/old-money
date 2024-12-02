@@ -14,8 +14,7 @@ export const StartPage = defineComponent({
         <div class={s.button_warpper}>
           <Button class={s.button} onClick={onClick}>测试</Button>
         </div>
-        1
-        <FloatButton/>
+        <FloatButton iconName="add"/>
       </div>
     )
   }
