@@ -5,10 +5,20 @@ button {
   }
 }
 
-.pig, svg {
-  width: 128px;
-  height: 128px;
-  &_wrapper {
-    padding: 160px 0;
+.pig_wrapper {
+  padding: 120px 0;
+}
+
+svg {
+  &.pig{
+    width: 128px;
+    height: 128px;
   }
+}
+
+.navIcon {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 2px;
 }
