@@ -6,6 +6,7 @@ import { Center } from "../shared/Center";
 import { Icon } from "../shared/Icon";
 import { Navbar } from "../shared/Navbar";
 import { Overlay } from "../shared/Overlay";
+import { RouterLink } from "vue-router";
 
 export const StartPage = defineComponent({
   setup: (props, context) => {
@@ -23,10 +24,12 @@ export const StartPage = defineComponent({
         <Center class={s.pig_wrapper}>
           <Icon name="pig" class={s.pig}></Icon>
         </Center>
-        <div class={s.button_warpper}>
+        <RouterLink to="/items/create">
           <Button class={s.button}>开始记账</Button>
-        </div>
-        <FloatButton iconName="add"/>
+        </RouterLink>
+        <RouterLink to="/items/create">
+          <FloatButton iconName="add"/>
+        </RouterLink>
         { refOverlayVisble.value && 
           <Overlay onClose={() => refOverlayVisble.value = false} />
         }
