@@ -21,8 +21,9 @@ export const StartPage = defineComponent({
         title: () => '山竹记账',
         icon: () => <Icon name='menu' class={s.navIcon} onClick={onClickMenu}/>,
         main: () => <>
+        <div class={s.start_page}>
+          <Icon name="pig" class={s.pig}></Icon>
           <Center class={s.pig_wrapper}>
-            <Icon name="pig" class={s.pig}></Icon>
           </Center>
           <RouterLink to="/items/create">
             <Button class={s.button}>开始记账</Button>
@@ -33,6 +34,7 @@ export const StartPage = defineComponent({
           { refOverlayVisble.value && 
             <Overlay onClose={() => refOverlayVisble.value = false} />
           }
+        </div>
         </>
       }}
       </MainLayout>

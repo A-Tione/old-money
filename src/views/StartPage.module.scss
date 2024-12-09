@@ -1,25 +1,26 @@
-button {
-  width: calc(100% - 32px);
-  margin: 0 16px;
-  &_wrapper {
-    padding: 16px 16px;
-  }
-}
-
-.pig_wrapper {
+.start_page {
   padding: 120px 0;
-}
-
-svg {
-  &.pig{
-    width: 128px;
-    height: 128px;
+  svg {
+    &.pig{
+      display: flex;
+      margin: 120px auto;
+      width: 128px;
+      height: 128px;
+    }
   }
-}
-
-.navIcon {
-  width: 30px;
-  height: 30px;
-  position: relative;
-  top: 2px;
+  button {
+    width: calc(100% - 32px);
+    margin: 0 16px;
+    &_wrapper {
+      padding: 16px 16px;
+    }
+  }
+  
+  
+  .navIcon {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 2px;
+  }
 }
