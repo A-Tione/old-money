@@ -3,6 +3,7 @@ import { MainLayout } from '../layouts/MainLayout';
 import { Icon } from '../shared/Icon';
 import s from './ItemCreate.module.scss'
 import { Tab, Tabs } from '../shared/Tabs';
+import { InputPad } from '../components/item/InputPad';
 export const ItemCreate = defineComponent({
   props: {
     name: {
@@ -24,6 +25,9 @@ export const ItemCreate = defineComponent({
             icon 列表 2
           </Tab>
         </Tabs>
+        <div class={s.inputPad_wrapper}>
+          <InputPad />
+        </div>
         </>
       }}</MainLayout>
     )
