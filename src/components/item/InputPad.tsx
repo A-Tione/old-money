@@ -12,7 +12,17 @@ export const InputPad = defineComponent({
   },
   setup: (props, context) => {
     const now = new Date()
-    const appendText = (n: number | string) => refAmount.value += n.toString()
+    const appendText = (n: number | string) => {
+      const nString = n.toString()
+      const doIndex = refAmount.value.indexOf('.')
+      if (refAmount.value.length >= 13) return;
+      if (doIndex >= 0 && nString === '.') return;
+      if (doIndex >= 0 && refAmount.value.length - doIndex > 2) return;
+      if (refAmount.value === '0') {
+        if (nString === '0') return;
+        refAmount.value = nString === '.' ? '0.' : nString;
+      }
+    }
     const buttons = [
       {
         text: '1', onClick: () => { appendText(1) }
@@ -27,7 +37,7 @@ export const InputPad = defineComponent({
       { text: '9', onClick: () => { appendText(9) } },
       { text: '.', onClick: () => { appendText('.') } },
       { text: '0', onClick: () => { appendText(0) } },
-      { text: '清空', onClick: () => { } },
+      { text: '清空', onClick: () => { refAmount.value = '0' } },
       { text: '提交', onClick: () => { } },
     ]
     const refDate = ref(now)
@@ -35,7 +45,7 @@ export const InputPad = defineComponent({
     const showDatePicker = () => refDatePickerVisible.value = true
     const hideDatePicker = () => refDatePickerVisible.value = false
     const setDate = (date: Date) => {refDate.value = date; hideDatePicker()}
-    const refAmount = ref('')
+    const refAmount = ref('0')
     return () => <>
       <div class={s.dateAndAmount}>
         <span class={s.date}>
